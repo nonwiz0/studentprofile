@@ -60,10 +60,10 @@ module.exports = {
       bgray: colors.blueGray,
       cgray: colors.coolGray,
       wgray: colors.warmGray,
-      red: colors.red,
-      blue: colors.sky,
+    /*   red: colors.red, */
+    /*   blue: colors.sky, */
       orange: colors.orange,
-      yellow: colors.yellow,
+    /*   yellow: colors.yellow, */
       amber: colors.amber,
       lime: colors.lime,
       rose: colors.rose,
@@ -75,8 +75,8 @@ module.exports = {
       // university brand colors
       navyBlue: "#18345e",
       lightBlue: "#22c1dc",
-      cyellow: "#f0ab20",
-      yred: "#c01f48",
+      yellow: "#f0ab20",
+      red: "#c01f48",
       sportsGold: "#8d744a",
       richBlack: "#211f20",
       blue: "#007bd6",
