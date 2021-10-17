@@ -1,0 +1,33 @@
+{% extends 'spapp/layout.html' %} {% block body %} Hello from Complete.html
+  <h1> Create Books for {{ author.name }} </h1>
+  <form method="POST">
+    {% csrf_token %}
+    {{ formset.management_form }}
+    {{ formset.as_p }}
+    <button> submit </button>
+  </form>
+  <hr />
+  <h2> Books </h2>
+  {% for book in books %}
+    <p> {{ book.title }} - {{ book.number_of_pages }} </p>
+  {% endfor %}
+
+
+
+
+
+
+  <div x-data="{counter: 0}">
+    <button @click="counter++">Click</button>
+    <div>Button click count: <span x-text="counter"></span></div>
+    <br />
+    <div class="m-10">
+      <form hx-post="{% url 'htmx:home' %}" hx-target="#demo-htmx-target">
+        <input type="text" name="dtest" placeholder="dtest" /> 
+        <input type="submit" value="Send" />
+      </form>
+
+    </div>
+  </div>
+
+{% endblock %}
