@@ -20,8 +20,8 @@
     <header>
       <!-- Header - Start -->
 
-      <div x-data="{ open: false, openDropdown: false }">
-        <nav class="bg-white shadow dark:bg-gray-800">
+      <div x-data="{ open: false, openDropdown: false }" class="pb-20">
+        <nav class="fixed z-10 w-full h-20 mb-10 overflow-x-hidden bg-white shadow dark:bg-gray-800">
           <div class="container px-6 py-4 mx-auto">
             <div class="md:flex md:items-center md:justify-between">
               <div class="flex items-center justify-between">
@@ -120,9 +120,11 @@
       <!-- Header - End -->
     </header>
 
+    <div class="">
     {% block content %}
     Testing
     {% endblock %}
+    </div>
 
     <footer class="w-full">
       <!-- <div class="fixed bottom-0 left-0 flex w-full text-center">
