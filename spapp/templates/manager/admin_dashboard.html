@@ -1,8 +1,8 @@
 {% extends 'manager/admin_layout.html' %}
 
 {% block content %}
-
-      <div class="flex items-center justify-center w-full h-auto p-2 md:w-4/5">
+<div class="relative">
+      <div class="flex items-center justify-center w-full h-auto p-2 ">
     <div class="relative flex flex-col w-full pb-5 m-1 rounded-lg space-y-5">
     <div class="bg-white">
    <div class="z-10 flex flex-row justify-between w-full p-2 text-white bg-gray-800 rounded-lg">
@@ -27,10 +27,10 @@
 
         <div> 
 
-<div class="container w-full px-2">
+<div class="container w-full px-2 mx-auto">
     <div class="">
         <div class="py-4">
-            <div class="inline-block min-w-full shadow rounded-lg overflow-auto w-4/5">
+            <div class="inline-block w-full shadow rounded-lg overflow-auto">
                 <table class="min-w-full leading-normal">
                     <thead>
                         <tr>
@@ -320,9 +320,11 @@
         </div>
     </div>
     </div>
-    </div>
-{% endblock %}
 
-{% block sidebar %}
-{% include "partials/job_listing_sidebar.html" %}
+    </div>
+    <div>
+{% comment %} popup {% endcomment %}
+    </div>
+
+    </div>
 {% endblock %}
