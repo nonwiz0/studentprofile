@@ -1,0 +1,72 @@
+{% extends 'manager/admin_layout.html' %}
+
+{% block content %}
+
+      <div class="flex items-center justify-center w-full h-auto p-2 md:w-4/5">
+    <div class="relative flex flex-col w-full pb-5 m-1 rounded-lg space-y-5">
+    <div class="bg-white">
+       <div class="z-10 flex flex-row justify-between w-full p-2 text-white bg-gray-800 rounded-lg">
+            <p class="text-lg font-bold text-white">
+                Entry of Job
+            </p>
+        </div>
+        <div> 
+
+    <section class="w-full p-6 rounded-md ">
+        
+        <form>
+            <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2 lg:grid-cols-3">
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="username">Title</label>
+                    <input id="username" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="password">Location</label>
+                    <input id="password" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+
+            <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="emailAddress">Email</label>
+                    <input id="emailAddress" type="email" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+            <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Phone Number</label>
+                    <input id="passwordConfirmation" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+                 <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Job type</label>
+                    <select id="passwordConfirmation" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                    <option> Internship </option>
+                    <option> Field Job </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-gray-700 dark:text-gray-200" for="passwordConfirmation">Salary/Fund</label>
+                    <input id="passwordConfirmation" type="text" class="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring">
+                </div>
+            </div>
+
+          
+            <div>
+                <label class="text-gray-700 dark:text-gray-200" for="password">Description</label>
+                <textarea class="block w-full h-40 px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+            </div>
+                <div class="flex justify-end mt-6">
+                    <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Add Job</button>
+                </div>
+        </form>
+    </section>
+        
+        </div>
+    </div>
+
+    {% include "partials/job_listing_content.html" %}
+
+    </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+{% include "partials/job_listing_sidebar.html" %}
+{% endblock %}

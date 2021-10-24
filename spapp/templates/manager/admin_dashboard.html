@@ -1,0 +1,328 @@
+{% extends 'manager/admin_layout.html' %}
+
+{% block content %}
+
+      <div class="flex items-center justify-center w-full h-auto p-2 md:w-4/5">
+    <div class="relative flex flex-col w-full pb-5 m-1 rounded-lg space-y-5">
+    <div class="bg-white">
+   <div class="z-10 flex flex-row justify-between w-full p-2 text-white bg-gray-800 rounded-lg">
+            <p class="text-lg font-bold text-white">
+                Students Activity Verification
+            </p>
+            <div class="relative" x-data="{open: false}">
+                <button @click="open = !open" @click.outside="open = false">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rounded-lg hover:bg-white hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                    </svg>
+                </button>
+                <div class="absolute right-0 w-48 py-2 mt-2 bg-white shadow-xl rounded-md dark:bg-gray-800" x-show="open">
+                    <a class="block px-4 py-3 text-sm text-gray-600 capitalize"> Sort </a>
+                    <hr />
+                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Language </a>
+                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Major </a>
+                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Location </a>
+                </div>
+            </div>
+        </div>
+
+        <div> 
+
+<div class="container w-full px-2">
+    <div class="">
+        <div class="py-4">
+            <div class="inline-block min-w-full shadow rounded-lg overflow-auto w-4/5">
+                <table class="min-w-full leading-normal">
+                    <thead>
+                        <tr>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                Activity
+                            </th>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                User
+                            </th>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                Created at
+                            </th>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                Type of Activity
+                            </th>
+                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                            Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-yellow opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Volunteer Camp
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-red opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Internship
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Academic Excellent
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Academic Excellent
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Academic Excellent
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <div class="flex items-center">
+                                    <div class="ml-3">
+                                        <p class="text-gray-900 whitespace-no-wrap">
+                                            Activity name
+                                        </p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    201900xxx
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <p class="text-gray-900 whitespace-no-wrap">
+                                    12/09/2020
+                                </p>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                    </span>
+                                    <span class="relative">
+                                        Academic Excellent
+                                    </span>
+                                </span>
+                            </td>
+                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
+                                        Approve
+                                    </a>
+                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                        Reject
+                                    </a>
+                            </td>
+                        </tr>
+                       
+                    </tbody>
+                </table>
+                <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
+                    <div class="flex items-center">
+                        <button type="button" class="w-full p-4 border text-base rounded-l-xl text-gray-600 bg-white hover:bg-gray-100">
+                            <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1427 301l-531 531 531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19l-742-742q-19-19-19-45t19-45l742-742q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z">
+                                </path>
+                            </svg>
+                        </button>
+                        <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-indigo-500 bg-white hover:bg-gray-100 ">
+                            1
+                        </button>
+                        <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
+                            2
+                        </button>
+                        <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100">
+                            3
+                        </button>
+                        <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
+                            4
+                        </button>
+                        <button type="button" class="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-gray-600 bg-white hover:bg-gray-100">
+                            <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
+                                </path>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+         
+        </div>
+    </div>
+    </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+{% include "partials/job_listing_sidebar.html" %}
+{% endblock %}

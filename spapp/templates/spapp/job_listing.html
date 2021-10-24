@@ -1,0 +1,13 @@
+{% extends 'spapp/layout.html' %}
+
+{% block content %}
+  <div class="flex items-center justify-center w-full h-auto p-2 md:w-4/5">
+    <div class="relative flex flex-col w-full pb-5 m-1 bg-white rounded-lg space-y-5">
+    {% include 'partials/job_listing_content.html' %}
+    </div>
+    </div>
+{% endblock %}
+
+{% block sidebar %}
+    {% include 'partials/job_listing_sidebar.html' %}
+{% endblock %}

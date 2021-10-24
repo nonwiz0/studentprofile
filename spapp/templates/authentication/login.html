@@ -1,68 +1,42 @@
 {% extends 'authentication/layout.html' %}
 {% block login_title %}{% endblock %}
-{% block login %}
-<div class="container mx-auto">
-			<div class="flex justify-center px-6 my-12">
-  <div class="w-full xl:w-3/4 lg:w-11/12 flex">
-  <div class="w-full h-auto bg-gray-400 hidden lg:block lg:w-5/12       bg-cover rounded-l-lg"
-      style="background-image: url('https://source.unsplash.com/Mv9hjnEUHR4/600x800')">
-  </div>
-  <div class="w-full lg:w-7/12 bg-white p-5 rounded-lg    lg:rounded-l-none">
-				<b><h3 class="pt-4 text-2xl text-center">Login</h3></b>
-        <form class="px-8 pt-6 pb-8 mb-4 bg-white rounded">
-          <div class="mb-4 md:flex md:justify-between">
-            <div class="mb-4 md:mr-2 md:mb-0">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="Username">
-                Username
-              </label>
-              <input
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="firstName"
-                type="text"
-                placeholder="Username"
-              />
-            </div>
-            <div class="md:ml-2">
-              <label class="block mb-2 text-sm font-bold text-gray-700" for="Password">
-                Password
-              </label>
-              <input
-                class="w-full px-3 py-2 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline"
-                id="lastName"
-                type="text"
-                placeholder="Password"
-              />
-            </div>
-          </div>
+{% block content %}
+
+<div class="flex w-4/5 md:w-3/5 mx-auto overflow-hidden bg-white rounded-lg shadow-lg dark:bg-gray-800">
+  <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')"></div>
   
-          <div class="mb-6 text-center">
-            <button
-              class="w-full px-4 py-2 font-bold text-white bg-blue-500 rounded-full hover:bg-blue-700 focus:outline-none focus:shadow-outline"
-              type="button">
+  <div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
+      <h2 class="text-2xl font-semibold text-center text-gray-700 dark:text-white">Brand</h2>
+
+      <p class="text-xl text-center text-gray-600 dark:text-gray-200">Welcome back!</p>
+
+      <div class="mt-4">
+          <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="LoggingEmailAddress">Email Address</label>
+          <input id="LoggingEmailAddress" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="email">
+      </div>
+
+      <div class="mt-4">
+        <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200" for="loggingPassword">Password</label>
+        <input id="loggingPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="password">
+      </div>
+      
+      <div class="flex justify-end">   
+        <a href="#" class="text-xs text-gray-500 dark:text-gray-300 hover:underline">Forget Password?</a>  
+    </div> 
+      
+      <div class="mt-8">
+          <button class="w-full px-4 py-2 tracking-wide text-white transition-colors duration-200 transform bg-gray-700 rounded hover:bg-gray-600 focus:outline-none focus:bg-gray-600">
               Login
-            </button>
-          </div>
-          <hr class="mb-6 border-t" />
-          <div class="text-center">
-            <a
-              class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-              href="#"
-            >
-              Forgot Password?
-            </a>
-          </div>
-          <div class="text-center">
-            <a
-              class="inline-block text-sm text-blue-500 align-baseline hover:text-blue-800"
-              href="{% url 'spapp:register' %}"
-            >
-              No Account Yet? Register Here
-            </a>
-          </div>
-        </form>
-      </div>  
-    </div>
-		</div>
+          </button>
+      </div>
+      
+      <div class="flex items-center justify-between mt-4">
+          <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+
+          <a href="#" class="text-xs text-gray-500 uppercase dark:text-gray-400 hover:underline">or sign up</a>
+          
+          <span class="w-1/5 border-b dark:border-gray-600 md:w-1/4"></span>
+      </div>
   </div>
 </div>
 {% endblock %}

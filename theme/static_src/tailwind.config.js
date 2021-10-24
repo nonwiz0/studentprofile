@@ -55,6 +55,7 @@ module.exports = {
   theme: {
     extend: {},
     colors: {
+      black: colors.black,
       white: colors.white,
       gray: colors.gray,
       bgray: colors.blueGray,
