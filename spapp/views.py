@@ -21,7 +21,8 @@ class TrialPage(generic.TemplateView):
 
 class ProfilePage(generic.TemplateView):
   template_name = "spapp/profile.html" 
-
+class SettingPage(generic.TemplateView):
+  template_name = "spapp/setting.html" 
 
 
 # For Manager - Admin - SA

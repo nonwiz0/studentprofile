@@ -74,14 +74,12 @@ module.exports = {
       emerald: colors.emerald,
       teal: colors.teal,
       // university brand colors
-      navyBlue: "#18345e",
-      lightBlue: "#22c1dc",
-      yellow: "#f0ab20",
-      red: "#c01f48",
-      sportsGold: "#8d744a",
-      richBlack: "#211f20",
-      blue: "#007bd6",
-      lightGrey: "#e5e5e4",
+      primary: "#18345e", /* navyblue */
+      tertinary: "#22c1dc", /* lightblue */
+      secondary: "#f0ab20", /* yellow */
+      red: "#c01f48", /* for errors */
+      other: "#007bd6", /* blue */
+      lightGrey: "#e5e5e4", /* for background */
     },
   },
   variants: {

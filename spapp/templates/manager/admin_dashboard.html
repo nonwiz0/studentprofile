@@ -1,330 +1,441 @@
 {% extends 'manager/admin_layout.html' %}
 
 {% block content %}
-<div class="relative">
-      <div class="flex items-center justify-center w-full h-auto p-2 ">
-    <div class="relative flex flex-col w-full pb-5 m-1 rounded-lg space-y-5">
-    <div class="bg-white">
-   <div class="z-10 flex flex-row justify-between w-full p-2 text-white bg-gray-800 rounded-lg">
-            <p class="text-lg font-bold text-white">
-                Students Activity Verification
-            </p>
-            <div class="relative" x-data="{open: false}">
-                <button @click="open = !open" @click.outside="open = false">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rounded-lg hover:bg-white hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                    </svg>
-                </button>
-                <div class="absolute right-0 w-48 py-2 mt-2 bg-white shadow-xl rounded-md dark:bg-gray-800" x-show="open">
-                    <a class="block px-4 py-3 text-sm text-gray-600 capitalize"> Sort </a>
-                    <hr />
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Language </a>
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Major </a>
-                    <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Location </a>
-                </div>
-            </div>
-        </div>
+    <div class="relative p-2 w-full md:w-4/5" x-data="{activityOpen: false}">
+        <div class="flex items-center justify-center w-full h-auto px-2 ">
+            <div class="relative flex flex-col w-full m-1 rounded-lg space-y-5">
+                <div class="bg-white">
+                    <div class="z-10 flex flex-row justify-between w-full p-2 text-white bg-gray-800 rounded-lg">
+                        <p class="text-lg font-bold text-white">
+                            Students Activity Verification
+                        </p>
+                        <div class="relative" x-data="{open: false}">
+                            <button @click="open = !open" @click.outside="open = false">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 rounded-lg hover:bg-white hover:text-gray-900" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
+                                </svg>
+                            </button>
+                            <div class="absolute right-0 w-48 py-2 mt-2 bg-white shadow-xl rounded-md dark:bg-gray-800" x-show="open">
+                                <a class="block px-4 py-3 text-sm text-gray-600 capitalize"> Sort </a>
+                                <hr />
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Language </a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Major </a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Location </a>
+                            </div>
+                        </div>
+                    </div>
 
-        <div> 
+                    <div> 
 
-<div class="container w-full px-2 mx-auto">
-    <div class="">
-        <div class="py-4">
-            <div class="inline-block w-full shadow rounded-lg overflow-auto">
-                <table class="min-w-full leading-normal">
-                    <thead>
-                        <tr>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                Activity
-                            </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                User
-                            </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                Created at
-                            </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                Type of Activity
-                            </th>
-                            <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                            Action
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
+                        <div class="container w-full px-2 mx-auto">
+                            <div class="">
+                                <div class="py-4">
+                                    <div class="inline-block w-full shadow rounded-lg overflow-auto">
+                                        <table class="min-w-full leading-normal">
+                                            <thead>
+                                                <tr>
+                                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                                        Activity
+                                                    </th>
+                                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                                        User
+                                                    </th>
+                                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                                        Created at
+                                                    </th>
+                                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                                        Type of Activity
+                                                    </th>
+                                                    <th scope="col" class="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
+                                                        Action
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-yellow opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Volunteer Camp
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-red opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Internship
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Academic Excellent
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Academic Excellent
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Academic Excellent
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <div class="flex items-center">
+                                                            <div class="ml-3">
+                                                                <p class="text-gray-900 whitespace-no-wrap">
+                                                                    <a href="#" class="underline" @click="activityOpen = !activityOpen">Activity name</a>
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            201900xxx
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <p class="text-gray-900 whitespace-no-wrap">
+                                                            12/09/2020
+                                                        </p>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
+                                                            <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
+                                                            </span>
+                                                            <span class="relative">
+                                                                Academic Excellent
+                                                            </span>
+                                                        </span>
+                                                    </td>
+                                                    <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-primary text-white w-20 text-center">
+                                                            Approve
+                                                        </a>
+                                                        <a href="#" class="m-1 text-white-600 hover:text-white-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
+                                                            Reject
+                                                        </a>
+                                                    </td>
+                                                </tr>
+
+                                            </tbody>
+                                        </table>
+                                        <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
+                                            <div class="flex items-center">
+                                                <button type="button" class="w-full p-4 border text-base rounded-l-xl text-gray-600 bg-white hover:bg-gray-100">
+                                                    <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1427 301l-531 531 531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19l-742-742q-19-19-19-45t19-45l742-742q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                                <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-white-500 bg-white hover:bg-gray-100 ">
+                                                    1
+                                                </button>
+                                                <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
+                                                    2
+                                                </button>
+                                                <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100">
+                                                    3
+                                                </button>
+                                                <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
+                                                    4
+                                                </button>
+                                                <button type="button" class="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-gray-600 bg-white hover:bg-gray-100">
+                                                    <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
+                                                        </path>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-yellow opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Volunteer Camp
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-black leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-red opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Internship
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Academic Excellent
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Academic Excellent
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Academic Excellent
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <div class="flex items-center">
-                                    <div class="ml-3">
-                                        <p class="text-gray-900 whitespace-no-wrap">
-                                            Activity name
-                                        </p>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    201900xxx
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <p class="text-gray-900 whitespace-no-wrap">
-                                    12/09/2020
-                                </p>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                <span class="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                    <span aria-hidden="true" class="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                    </span>
-                                    <span class="relative">
-                                        Academic Excellent
-                                    </span>
-                                </span>
-                            </td>
-                            <td class="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-blue text-white w-20 text-center">
-                                        Approve
-                                    </a>
-                                    <a href="#" class="m-1 text-indigo-600 hover:text-indigo-900 inline-block px-3 py-1 rounded-lg bg-red text-white w-20 text-center">
-                                        Reject
-                                    </a>
-                            </td>
-                        </tr>
-                       
-                    </tbody>
-                </table>
-                <div class="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
-                    <div class="flex items-center">
-                        <button type="button" class="w-full p-4 border text-base rounded-l-xl text-gray-600 bg-white hover:bg-gray-100">
-                            <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1427 301l-531 531 531 531q19 19 19 45t-19 45l-166 166q-19 19-45 19t-45-19l-742-742q-19-19-19-45t19-45l742-742q19-19 45-19t45 19l166 166q19 19 19 45t-19 45z">
-                                </path>
-                            </svg>
-                        </button>
-                        <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-indigo-500 bg-white hover:bg-gray-100 ">
-                            1
-                        </button>
-                        <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
-                            2
-                        </button>
-                        <button type="button" class="w-full px-4 py-2 border-t border-b text-base text-gray-600 bg-white hover:bg-gray-100">
-                            3
-                        </button>
-                        <button type="button" class="w-full px-4 py-2 border text-base text-gray-600 bg-white hover:bg-gray-100">
-                            4
-                        </button>
-                        <button type="button" class="w-full p-4 border-t border-b border-r text-base  rounded-r-xl text-gray-600 bg-white hover:bg-gray-100">
-                            <svg width="9" fill="currentColor" height="8" class="" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1363 877l-742 742q-19 19-45 19t-45-19l-166-166q-19-19-19-45t19-45l531-531-531-531q-19-19-19-45t19-45l166-166q19-19 45-19t45 19l742 742q19 19 19 45t-19 45z">
-                                </path>
-                            </svg>
-                        </button>
+                            </div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
+
+        </div>
+        {% comment %} Popover {% endcomment %}
+        <div class="bg-gray-500 fixed inset-0 z-50 bg-opacity-50 flex items-center" x-show="activityOpen" >
+            <div class="mx-auto">
+
+                <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" @click.outside="activityOpen = false">
+                    <div class="flex flex-row justify-between">
+                        <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Activity Name</h2>
+                        <a class="text-red" @click="activityOpen = false"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                            </svg> </a>
+                    </div>
+
+                    <form>
+ <div class="mt-6 ">
+            <div class="items-center -mx-2 md:flex">
+                <div class="w-full mx-2">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Title</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Start Date</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="date">
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">End Date</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="date">
+                </div>
+            </div>
+
+            <div class="items-center -mx-2 md:flex mt-6">
+                <div class="w-full mx-2">
+                    <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Company/Organization Name</label>
+
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                </div>
+
+                <div class="w-full mx-2 mt-4 md:mt-0">
+                    <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Address</label>
+
+                    <input class="block w-full px-4 py-2 text-primary bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                </div>
+            </div>
+
+            <div class="w-full mt-4">
+                <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Description of Resposibility</label>
+
+                <textarea class="block w-full h-40 px-4 py-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+            </div>
+
+        </div> 
+                        <div class="flex justify-end mt-6 space-x-2">
+                            <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
+                            <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-primary rounded-md hover:bg-primary focus:outline-none focus:bg-primary">Approve</button>
+                            <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-red rounded-md hover:bg-red focus:outline-none focus:bg-gray-600">Reject</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
         </div>
     </div>
-</div>
+    {% comment %} Sidebar {% endcomment %}
+    <div class="w-full md:w-1/5 p-2">
+        <div class="flex flex-col items-center justify-between w-full h-auto p-1 space-y-2">
+            <div class="p-2 text-white bg-gray-800 rounded-md w-full">
+                Search
+            </div>
 
-         
+            <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
+                    <div class="relative">
+                        <span class="absolute inset-y-0 left-0 flex items-center pl-3">
+                            <svg class="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="none">
+                                <path d="M21 21L15 15M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                            </svg>
+                        </span>
+
+                        <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary-500 dark:focus:border-primary-500 focus:outline-none focus:ring" placeholder="Search">
+                    </div>
+                </section>
+            </div>
+            <div class="w-full bg-white rounded-lg  h-72">
+                <div class="p-2 text-white bg-gray-800 rounded-md">
+                    Pending Requests
+                </div>
+                <div class="flex flex-col justify-start px-3 py-2 m-1 mx-auto ">
+                    <div class="p-1 my-2 border border-gray-300 rounded-md">
+                        <div class="flex flex-row justify-between">
+                            <a href="#"> Student ID </a>
+                            <a href="#"> Requests </a>
+                        </div>
+
+                        <div class="flex flex-row justify-between">
+                            <a href="#"> 201800xxx </a>
+                            <a href="#"> 4 </a>
+                        </div>
+
+                        <div class="flex flex-row justify-between">
+                            <a href="#"> 201900xxx </a>
+                            <a href="#"> 5 </a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </div>
         </div>
-    </div>
-    </div>
 
-    </div>
-    <div>
-{% comment %} popup {% endcomment %}
-    </div>
 
     </div>
 {% endblock %}

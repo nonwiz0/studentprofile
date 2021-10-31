@@ -8,6 +8,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
   </head>
 
@@ -15,11 +16,10 @@
     {% include "partials/admin_header.html" with name="SA Admin" %}
 
     <div class="flex flex-col-reverse items-start py-10 mb-10 md:flex-row">
-        {% block content %}
+      {% block content %}
 
-        {% endblock %}
-        {% block sidebar %}
-          {% endblock %}
+      {% endblock %}
+
     </div>
     </div>
 
