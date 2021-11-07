@@ -11,10 +11,8 @@ class LoginPage(generic.TemplateView):
 class RegisterPage(generic.TemplateView):
   template_name = "authentication/register.html" 
 
-
-
-class JobListingPage(generic.TemplateView):
-  template_name = "spapp/job_listing.html"
+class DashboardPage(generic.TemplateView):
+  template_name = "spapp/dashboard.html"
 
 class TrialPage(generic.TemplateView):
   template_name = "test.html" 
