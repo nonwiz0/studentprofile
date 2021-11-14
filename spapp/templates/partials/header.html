@@ -12,7 +12,7 @@
 
             <!-- Mobile menu button -->
             <div class="flex md:hidden">
-              <button type="button" class="text-white dark:text-gray-200 hover:text-secondary focus:outline-none focus:text-secondary dark:focus:text-gray-400" aria-label="toggle menu" @click="open = !open">
+              <button type="button" class="text-white  hover:text-secondary focus:outline-none focus:text-secondary " aria-label="toggle menu" @click="open = !open">
                 <svg viewBox="0 0 24 24" class="w-6 h-6 fill-current">
                   <path fill-rule="evenodd" d="M4 5h16a1 1 0 0 1 0 2H4a1 1 0 1 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2zm0 6h16a1 1 0 0 1 0 2H4a1 1 0 0 1 0-2z"></path>
                 </svg>
@@ -34,10 +34,10 @@
 
             <hr class="sm:hidden"/>
             <div class="flex flex-col -mx-4 sm:hidden">
-              <a href="{% url 'spapp:profile' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">View Profile</a>
-              <a href="{% url 'spapp:setting' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">Setting</a>
-              <a href="#" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">Help</a>
-              <a href="{% url 'spapp:login' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-700">Sign Out</a>
+              <a href="{% url 'spapp:profile' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-gray-300 ">View Profile</a>
+              <a href="{% url 'spapp:setting' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-gray-300 ">Setting</a>
+              <a href="#" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-gray-300 ">Help</a>
+              <a href="{% url 'spapp:login' %}" class="px-2 py-1 mx-2 mt-2 text-sm font-medium text-white transition-colors duration-200 transform rounded-md md:mt-0  hover:bg-gray-300 ">Sign Out</a>
 
 
             </div>
@@ -61,34 +61,34 @@
 
                   <div class="relative inline-block" >
                     <!-- Dropdown toggle button -->
-                    <button @click="openDropdown = ! openDropdown" class="relative z-10 invisible block p-2 text-white sm:visible rounded-md dark:text-white focus:border-blue-500 focus:ring-opacity-40 dark:focus:ring-opacity-40 focus:ring-blue-300 dark:focus:ring-blue-400 focus:ring dark:bg-secondary focus:outline-none">
+                    <button @click="openDropdown = ! openDropdown" class="relative z-10 invisible block p-2 text-white sm:visible rounded-md  focus:border-blue-500 focus:ring-opacity-40  focus:ring-blue-300  focus:ring  focus:outline-none">
                       <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
                         <path d="M10 6a2 2 0 110-4 2 2 0 010 4zM10 12a2 2 0 110-4 2 2 0 010 4zM10 18a2 2 0 110-4 2 2 0 010 4z" />
                       </svg>
                     </button>
 
                     <!-- Dropdown menu -->
-                    <div x-show="openDropdown" @click.outside="openDropdown = false" class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white shadow-xl top-12 rounded-md dark:bg-secondary" >
-                      <a href="{% url 'spapp:profile' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                    <div x-show="openDropdown" @click.outside="openDropdown = false" class="absolute right-0 z-20 w-48 py-2 mt-2 bg-white shadow-xl top-12 rounded-md " >
+                      <a href="{% url 'spapp:profile' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  ">
                         view profile
                       </a>
 
-                      <a href="{% url 'spapp:setting' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <a href="{% url 'spapp:setting' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  ">
                         Settings
                       </a>
 
-                      <hr class="border-gray-200 dark:border-gray-700 ">
+                      <hr class="border-gray-200  ">
 
-                      <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  ">
                         Redeem Reward
                       </a>
 
-                      <hr class="border-gray-200 dark:border-gray-700 ">
+                      <hr class="border-gray-200  ">
 
-                      <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  ">
                         Help
                       </a>
-                      <a href="{% url 'spapp:login' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white">
+                      <a href="{% url 'spapp:login' %}" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  ">
                         Sign Out
                       </a>
                     </div>

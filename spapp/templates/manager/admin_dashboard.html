@@ -15,12 +15,12 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                 </svg>
                             </button>
-                            <div class="absolute right-0 w-48 py-2 mt-2 bg-white shadow-xl rounded-md dark:bg-gray-800" x-show="open">
+                            <div class="absolute right-0 w-48 py-2 mt-2 bg-white shadow-xl rounded-md " x-show="open">
                                 <a class="block px-4 py-3 text-sm text-gray-600 capitalize"> Sort </a>
                                 <hr />
-                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Language </a>
-                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Major </a>
-                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white"> Location </a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  "> Language </a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  "> Major </a>
+                                <a href="#" class="block px-4 py-3 text-sm text-gray-600 capitalize transition-colors duration-200 transform  hover:bg-gray-100  "> Location </a>
                             </div>
                         </div>
                     </div>
@@ -326,9 +326,9 @@
         <div class="bg-gray-500 fixed inset-0 z-50 bg-opacity-50 flex items-center" x-show="activityOpen" >
             <div class="mx-auto">
 
-                <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md dark:bg-gray-800" @click.outside="activityOpen = false">
+                <section class="max-w-4xl p-6 mx-auto bg-white rounded-md shadow-md " @click.outside="activityOpen = false">
                     <div class="flex flex-row justify-between">
-                        <h2 class="text-lg font-semibold text-gray-700 capitalize dark:text-white">Activity Name</h2>
+                        <h2 class="text-lg font-semibold text-gray-700 capitalize ">Activity Name</h2>
                         <a class="text-red" @click="activityOpen = false"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                             </svg> </a>
@@ -338,42 +338,42 @@
  <div class="mt-6 ">
             <div class="items-center -mx-2 md:flex">
                 <div class="w-full mx-2">
-                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Title</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-600 ">Title</label>
 
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="text">
                 </div>
 
                 <div class="w-full mx-2 mt-4 md:mt-0">
-                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">Start Date</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-600 ">Start Date</label>
 
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="date">
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="date">
                 </div>
 
                 <div class="w-full mx-2 mt-4 md:mt-0">
-                    <label class="block mb-2 text-sm font-medium text-gray-600 dark:text-gray-200">End Date</label>
+                    <label class="block mb-2 text-sm font-medium text-gray-600 ">End Date</label>
 
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="date">
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="date">
                 </div>
             </div>
 
             <div class="items-center -mx-2 md:flex mt-6">
                 <div class="w-full mx-2">
-                    <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Company/Organization Name</label>
+                    <label class="block mb-2 text-sm font-medium text-primary ">Company/Organization Name</label>
 
-                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                    <input class="block w-full px-4 py-2 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="text">
                 </div>
 
                 <div class="w-full mx-2 mt-4 md:mt-0">
-                    <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Address</label>
+                    <label class="block mb-2 text-sm font-medium text-primary ">Address</label>
 
-                    <input class="block w-full px-4 py-2 text-primary bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring" type="text">
+                    <input class="block w-full px-4 py-2 text-primary bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="text">
                 </div>
             </div>
 
             <div class="w-full mt-4">
-                <label class="block mb-2 text-sm font-medium text-primary dark:text-gray-200">Description of Resposibility</label>
+                <label class="block mb-2 text-sm font-medium text-primary ">Description of Resposibility</label>
 
-                <textarea class="block w-full h-40 px-4 py-1 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-blue-500 dark:focus:border-blue-500 focus:outline-none focus:ring"></textarea>
+                <textarea class="block w-full h-40 px-4 py-1 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-blue-500  focus:outline-none focus:ring"></textarea>
             </div>
 
         </div> 
@@ -403,7 +403,7 @@
                             </svg>
                         </span>
 
-                        <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md dark:bg-gray-800 dark:text-gray-300 dark:border-gray-600 focus:border-primary-500 dark:focus:border-primary-500 focus:outline-none focus:ring" placeholder="ID Num">
+                        <input type="text" class="w-full py-3 pl-10 pr-4 text-gray-700 bg-white border border-gray-300 rounded-md    focus:border-primary-500  focus:outline-none focus:ring" placeholder="ID Num">
                     </div>
                 </section>
             </div>
