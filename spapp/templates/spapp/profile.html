@@ -18,7 +18,7 @@
 </div>   
 
 <section class="w-full max-w-4xl px-6 py-4 mx-auto bg-lightGrey rounded-md shadow-md ">
-    <h2 class="text-3xl font-semibold text-center text-primary ">John Doe    <a href="{% url 'spapp:setting' %}"><span class="text-sm text-tertinary hover:text-secondary">Edit Profile</span></a></h2>
+    <h2 class="text-3xl font-semibold text-center text-primary ">{{ user.first_name }} {{ user.last_name }}  <a href="{% url 'spapp:setting' %}"><span class="text-sm text-tertinary hover:text-secondary">Edit Profile</span></a></h2>
     <p class="mt-3 text-center text-primary ">What are you intersts and  hobbies testttt</p>
     
     <div class="grid grid-cols-1 gap-0 mt-6 sm:grid-cols-2 md:grid-cols-2">
@@ -36,7 +36,7 @@
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
             </svg>
 
-            <span class="mt-2">dan@example.com</span>
+            <span class="mt-2">{{ user.email }} </span>
         </a>
     </div>
     

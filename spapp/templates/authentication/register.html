@@ -3,7 +3,8 @@
 {% block content %}
 
 	
-<div class="flex w-4/5 md:w-3/5 mx-auto overflow-hidden bg-white rounded-lg shadow-lg ">
+<form class="flex w-4/5 md:w-3/5 mx-auto overflow-hidden bg-white rounded-lg shadow-lg" method="POST">
+{% csrf_token %}
 	<div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')"></div>
 	
 	<div class="w-full px-6 py-8 md:px-8 lg:w-1/2">
@@ -13,22 +14,27 @@
 
 		<div class="mt-4">
 			<label class="block mb-2 text-sm font-medium text-gray-600 " for="fullname">Full Name</label>
-			<input id="fullname" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="email">
+			<input id="fullname" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-500  focus:outline-none focus:ring" type="text" name="full_name">
 		</div>
   
 		<div class="mt-4">
 			<label class="block mb-2 text-sm font-medium text-gray-600 " for="LoggingEmailAddress">Email Address</label>
-			<input id="LoggingEmailAddress" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="email">
+			<input id="LoggingEmailAddress" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="email" name="email">
 		</div>
+		<div class="mt-4">
+			<label class="block mb-2 text-sm font-medium text-gray-600 " for="id_number">ID Number</label>
+			<input id="id_number" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md focus:border-blue-500  focus:outline-none focus:ring" type="text" name="id_number">
+		</div>
+ 
   
 		<div class="mt-4">
 			<label class="block mb-2 text-sm font-medium text-gray-600 " for="loggingPassword">Password</label>
-			<input id="loggingPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="password">
+			<input id="loggingPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="password" name="password">
 		</div>
 
 		<div class="mt-4">
 			<label class="block mb-2 text-sm font-medium text-gray-600 " for="confirmPassword">Confirm Password</label>
-			<input id="confirmPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="password">
+			<input id="confirmPassword" class="block w-full px-4 py-2 text-gray-700 bg-white border rounded-md    focus:border-blue-500  focus:outline-none focus:ring" type="password" name="password1">
 		</div>
   
 		<div class="mt-8">
@@ -42,12 +48,12 @@
 		<div class="flex items-center justify-between mt-4">
 			<span class="w-1/5 border-b  md:w-1/4"></span>
   
-			<a href="{% url 'spapp:login' %}" class="text-xs text-gray-500 uppercase  hover:underline">sign in</a>
+			<a href="{% url 'spapp:login' %}" class="text-xs text-gray-500   hover:underline">Already have an account? <span class="text-blue-500">Sign in</span></a>
 			
 			<span class="w-1/5 border-b  md:w-1/4"></span>
 		</div>
 	</div>
-  </div>
+  </form>
 
 
 {% endblock %}

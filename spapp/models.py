@@ -34,13 +34,13 @@ class Emphasis(models.Model):
 class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     id_number = models.CharField(max_length=10)
-    date_of_birth = models.DateField()
-    nationality = models.CharField(max_length=10)
-    major = models.OneToOneField(Major, on_delete=models.CASCADE)
-    bio_char = models.CharField(max_length=100)
-    interests = models.CharField(max_length=100)
-    phone_number = models.CharField(max_length=12)
-    website = models.CharField(max_length=12)
+    date_of_birth = models.DateField(null=True)
+    nationality = models.CharField(max_length=10, null=True)
+    major = models.OneToOneField(Major, on_delete=models.CASCADE, null=True)
+    bio_char = models.CharField(max_length=100, null=True)
+    interests = models.CharField(max_length=100, null=True)
+    phone_number = models.CharField(max_length=12, null=True)
+    website = models.CharField(max_length=12, null=True)
     
     def __str__(self):
         return f"student: {self.user}, id: {self.id_number}"
@@ -68,7 +68,6 @@ class AcademicRecognition(models.Model):
     activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="academic_recognition")
     semester = models.CharField(max_length=15)
     gpa = models.FloatField(max_length=3)
-    activity_type = models.OneToOneField(Activities, on_delete=models.CASCADE) 
    
 class CommunityService(models.Model):
     location = models.CharField(max_length=50)
