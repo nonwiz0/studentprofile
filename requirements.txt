@@ -1,0 +1,2 @@
+django-crispy-forms==1.13.0        # new
+crispy-tailwind==0.5.0             # new

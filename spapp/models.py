@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.fields import related
+from django.urls import reverse
 
 # Create your models here.
 
@@ -44,6 +45,9 @@ class Student(models.Model):
     
     def __str__(self):
         return f"student: {self.user}, id: {self.id_number}"
+
+    def get_absolute_url(self):
+        return reverse('spapp:setting', kwargs={'pk': self.user.id})
 
 class Validator(models.Model):
     name = models.CharField(max_length=50)

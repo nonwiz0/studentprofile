@@ -1,5 +1,5 @@
 {% extends 'spapp/layout.html' %}
-
+{% load crispy_forms_tags %}
 
 {% block content_one_column %}
 <section x-data="{ tab: 'profile' }" class="flex">
@@ -42,17 +42,20 @@
                 <span class="mx-4 font-medium">Sharing</span>
             </a>
                 <hr class="my-6 " />
-  
-  
-              
+   
             </nav>     
     </div>
   
    <div  class="flex-col w-full   " >
       <div x-show="tab === 'profile'" class=" h-screen px-36  p-6 bg-white rounded-md shadow-md ">
         <h2 class="text-lg font-semibold text-gray-700 capitalize ">Profile settings</h2>
-        
-        <form>
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+          <button type="submit" class="p-4 bg-primary rounded-lg text-white"  value="Submit">Submit</button>
+        </form>
+        <!-- <form>
             <div class="grid grid-cols-1 gap-6 mt-4 sm:grid-cols-2">
                 <div>
                     <label class="text-gray-700 " for="username">First Name</label>
@@ -78,7 +81,7 @@
             <div class="flex justify-end mt-6">
                 <button class="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-700 rounded-md hover:bg-gray-600 focus:outline-none focus:bg-gray-600">Save</button>
             </div>
-        </form>
+        </form> -->
       </div>
   
   

@@ -9,7 +9,7 @@ urlpatterns = [
     path('logout', views.logout_view, name="logout"),
     path('register', views.RegisterPage.as_view(), name="register"),
     path('profile', views.ProfilePage.as_view(), name="profile"),
-    path('profile/setting', views.SettingPage.as_view(), name="setting"),
+    path('profile/setting/<pk>/', views.SettingPage.as_view(), name="setting"),
 
     path("manager/dashboard", views.AdminDashboard.as_view(), name="admin_dashboard"),
     path("manager/job_listing", views.AdminJobListing.as_view(), name="admin_job_listing")

@@ -6,6 +6,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from .models import Student
 from random import randint
+from .forms import StudentForm
+from django.shortcuts import get_object_or_404
 
 def logout_view(req):
   logout(req)
@@ -91,9 +93,14 @@ class ProfilePage(LoginRequiredMixin,generic.TemplateView):
   login_url = 'spapp:login'
   template_name = "spapp/profile.html" 
   
-class SettingPage(LoginRequiredMixin,generic.TemplateView):
+class SettingPage(LoginRequiredMixin,generic.UpdateView):
   login_url = 'spapp:login'
   template_name = "spapp/setting.html" 
+  form_class = StudentForm
+
+  def get_object(self):
+      return get_object_or_404(Student, id=self.kwargs.get('pk'))
+
 
 
 # For Manager - Admin - SA
