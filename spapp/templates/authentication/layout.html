@@ -7,11 +7,29 @@
         <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% tailwind_css %}
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
+      <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#18345e", /* navyblue */
+              tertinary: "#22c1dc", /* lightblue */
+              secondary: "#f0ab20", /* yellow */
+              red: "#c01f48", /* for errors */
+              other: "#007bd6", /* blue */
+              lightGrey: "#e5e5e4", /* for background */
+            },
+          },
+        },
+      }
+    </script>
   </head>
   <!-- Maybe there is some issue with the Register class tag??? -->
   <body class="bg-navyBlue">
-    <div class="grid place-items-center h-screen w-full">
+    <div class="w-full h-screen grid place-items-center">
     {% block content %} {% endblock %}
     </div>
   </body>

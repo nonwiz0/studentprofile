@@ -1,6 +1,7 @@
 {% extends 'authentication/layout.html' %}
 {% block login_title %}{% endblock %}
 {% block content %}
+
 <form class="flex w-4/5 md:w-3/5 mx-auto overflow-hidden bg-white rounded-lg shadow-lg" method="POST">
 {% csrf_token %}
   <div class="hidden bg-cover lg:block lg:w-1/2" style="background-image:url('https://images.unsplash.com/photo-1606660265514-358ebbadc80d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1575&q=80')"></div>

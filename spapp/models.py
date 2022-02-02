@@ -55,11 +55,11 @@ class Validator(models.Model):
     email = models.CharField(max_length=50)
  
 class Activities(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    student = models.OneToOneField(Student, on_delete=models.CASCADE)
     activity_name = models.CharField(max_length=30)
-    description = models.CharField(max_length=100)
+    description = models.TextField()
     start_date = models.DateField()
-    end_date =models.DateField()
+    end_date = models.DateField()
     validator = models.OneToOneField(Validator, on_delete=models.CASCADE)
     verification_status = models.BooleanField(default = False)
     #approved_by_manager = models.OneToOneField(Manager, on_delete=models.CASCADE)
@@ -77,7 +77,23 @@ class CommunityService(models.Model):
     location = models.CharField(max_length=50)
     activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="community_service")
     
-   
+
+class Project(models.Model):
+    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="project")
+    resonsibility = models.TextField()
+    location = models.CharField(max_length=50)
+
+
+class Research(models.Model):
+    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="research")
+    co_author = models.CharField(max_length=100)
+    link = models.CharField(max_length=50)
+    published_date = models.DateField()
+  
+    
+class Internship(models.Model):
+    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="internship")
+
 # Degree -> Program -> Major -> Emphasis
 #           Science -> Bioscience -> Biology
 #           Science -> Information Technology
