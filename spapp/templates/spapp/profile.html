@@ -17,18 +17,19 @@
 </div>
 </div>   
 
-<!-- 
-    profile information recent activites
-
- -->
 <div class="flex flex-col md:flex-row w-full pb-5 m-1 md:space-x-5">
     <!-- profile information -->
-    <section class="w-full max-w-4xl px-6 py-4 mx-auto bg-lightGrey rounded-md shadow-md ">
-        <h2 class="text-3xl font-semibold text-center text-primary ">{{ user.first_name }} {{ user.last_name }}  <a href="{% url 'spapp:setting' user.id %}"><span class="text-sm text-tertinary hover:text-secondary">Edit Profile</span></a></h2>
-        <p class="mt-3 text-center text-primary ">What are you intersts and  hobbies testttt</p>
+    <section class="w-1/4 max-w-4xl px-6 py-4 mx-auto bg-lightGrey rounded-md shadow-md ">
+        <!-- Name of user -->
+        <h2 class="text-3xl font-semibold text-center text-primary ">{{ user.first_name }} {{ user.last_name }}  </h2>
+
+        <!-- should be centered, but somehow not working -->
+        <a href="{% url 'spapp:setting' user.id %}" class="text-center text-sm text-tertinary hover:text-secondary ">Edit Profile</a>
+        <!-- short user bio -->
+        <p class="mt-3 text-center text-primary ">Senior IT student intersted in web development, currelty learning UI desing princicples blah blah blah....</p>
         
-        <div class="grid grid-cols-1 gap-0 mt-6 sm:grid-cols-2 md:grid-cols-2">
-            <a href="#" class="flex flex-col items-center px-4 py-3 text-primary rounded-md   ">
+        <div class="mt-6">
+            <a href="#" class="inline-flex items-baseline px-4 py-3 text-primary rounded-md   ">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                 </svg>
@@ -36,7 +37,7 @@
                 <span class="mt-2">You did not add phone number</span>
             </a>
 
-            <a href="#" class="flex flex-col items-center px-4 py-3 text-primary rounded-md   ">
+            <a href="#" class="inline-flex items-baseline px-4 py-3 text-primary rounded-md   ">
                 <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -44,22 +45,19 @@
 
                 <span class="mt-2">{{ user.email }} </span>
             </a>
+
+            <p>share btn to be added here </p>
         </div>
         
     
     </section>
 
     <!-- recent activities -->
-        <section class="w-full max-w-6xl px-6 py-4 mx-auto bg-grey-400 rounded-md   ">
+    <section class="w-3/4 max-w-6xl px-6 py-4 mx-auto bg-grey-400 rounded-md   ">
         <div class="container px-6 py-8 mx-auto">
-            <div class="sm:flex sm:items-center sm:justify-center">
-                <div>
-                    <h2 class=" text-3xl font-bold text-primary ">Recent Activites</h2>
+            <h2 class=" text-3xl font-bold text-primary text-center md:text-left ">Recent Activites</h2>
                 <!--   <p class="mt-4 text-gray-500 "></p> -->
-                </div>
-
-
-            </div>
+             
             <div class="grid gap-6 mt-16 -mx-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
 
                 <div class="px-6 py-4 transition-colors duration-200 transform bg-primary rounded-lg ">
@@ -164,7 +162,7 @@
             
             </div>
      </div>
-        </section>
+    </section>
 </div>
 
     <!-- the form for adding -->
