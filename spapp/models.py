@@ -94,6 +94,15 @@ class Research(models.Model):
 class Internship(models.Model):
     activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="internship")
 
+
+class Job(models.Model):
+    title = models.CharField(max_length=50)
+    description = models.CharField(max_length=100)
+    location = models.CharField(max_length=50)
+    email = models.EmailField()
+    phone_number = models.CharField(max_length=20)
+    website = models.CharField(max_length=50) 
+
 # Degree -> Program -> Major -> Emphasis
 #           Science -> Bioscience -> Biology
 #           Science -> Information Technology
@@ -101,3 +110,38 @@ class Internship(models.Model):
 # Degree: Arts, Science, Business Admin,       
 # Major: IT, BioScience, Teaching, 
 # Emphasis: Biology, Clinical Lab Science
+
+"""
+
+Plan for Backend:
+Student:
+- updating personal profile
+- registering should show the username of the user 
+- if forgotten, maybe create a function to return the username with given email address.
+- Request to delete personal information
+- Request to add activity
+- convert student profile to resume or pdf format
+
+Managers (SA):
+- Adding Major and Degree: CRUD
+- to manage student accounts
+- Update students activity request
+- Erase studnet's information (profile)
+- Generate log when making operation like Major / Verify
+
+Superuser:
+1 Superuser > Multiple Manager (Registrar / SA) > Student
+
+Feb:
+Wk1: Summary / Database Checking / Planning
+Wk2: Registration of user / updating personal profile / if forgotten password will show / request to delete personal info / CRUD major and degree / Student Account
+Wk3: requests to add activity
+Wk4:
+
+March:
+Wk1:
+Wk2:
+Wk3:
+Wk4:
+
+"""
