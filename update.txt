@@ -1,0 +1,11 @@
+class UpdateProfilePage(generic.TemplateView):
+  template_name = "authentication/register.html" 
+
+  def post(self, req):
+    data = req.POST
+
+    if (data['email] and data['password] and data['first_name'] and data['last_name'] and data['id_number']):
+            # on the edit profile page: we can pass curent user values so that user just need to chnage which ever they want
+            #update user object
+
+    

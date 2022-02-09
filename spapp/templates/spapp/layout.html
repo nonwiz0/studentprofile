@@ -25,10 +25,25 @@
           },
         },
       }
+      {% if messages %}
+      alert("Hello there")
+      {% for message in messages %}
+        alert("{{ message }}")
+      {% endfor %}
+      {% endif %}
     </script>
   </head>
 
   <body class="font-sans bg-lightGrey">
+    <div> 
+      {% if status %}
+     </div>
+      {% if messages %}
+      {% for message in messages %}
+        <h1>{{ message }} </h1>
+      {% endfor %}
+      {% endif %}
+ 
     {% include "partials/header.html" with name="white_hats" %}
     {% block content_one_column %}
     {% endblock %}

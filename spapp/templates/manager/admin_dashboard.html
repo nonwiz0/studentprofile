@@ -428,12 +428,31 @@
                             <a href="#"> 5 </a>
                         </div>
                     </div>
-
-
-
                 </div>
-
             </div>
+            {% if majors %}
+                <!-- Tested by Gates -->
+                <h1>List of Majors</h1>
+                <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                    <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
+                        {% for major in majors %}
+                            {{major.name}}<br>
+                        {% endfor %}
+                    </section>
+                </div>
+            {% endif %}
+            {% if degrees %}
+                <!-- Tested by Gates -->
+                <h1>List of Degrees</h1>
+                <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                    <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
+                        {% for degree in degrees %}
+                            Degree: {{degree.name}}<br>
+                            Faculty: {{degree.faculty}}<br>
+                        {% endfor %}
+                    </section>
+                </div>
+            {% endif %}
         </div>
 
 

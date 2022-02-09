@@ -1,5 +1,14 @@
 # studentprofile
 
+# Log
+## Feb 09:
+Wk2: 
+- Registration of user /  // To tell generatered username: // to let user knows about their username // broset
+- updating personal profile / for student // dan
+- if forgotten password will show /  for student 
+- request to delete personal info / for student // broset
+- CRUD major and degree  for SA, Admin, manager - Sven Gate Big boss 
+
 # Pages
 
 ## Student
