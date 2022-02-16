@@ -199,24 +199,23 @@ class MajorCreateView(LoginRequiredMixin, generic.CreateView):
   success_url = reverse_lazy('spapp:admin_dashboard')
 
 # To update degrees in update_degree.html
-class MajorUpdateView(LoginRequiredMixin, generic.CreateView):
+class MajorUpdateView(LoginRequiredMixin, generic.UpdateView):
   login_url = '/'
   template_name = 'manager/major/update_major.html'
   fields = '__all__'
   model = Major
-  context_object_name = 'major'
   success_url = reverse_lazy('spapp:admin_dashboard')
   
   def get_object(self):
-        return Major.objects.get(id=self.kwargs['pk'])
+      return self.model.objects.get(id=self.kwargs['pk'])
 
 
 # To delete degrees in delete_degree.html
 class MajorDeleteView(LoginRequiredMixin, generic.DeleteView):
   template_name = 'manager/major/delete_major.html'
-  success_url = reverse_lazy('spapp:list-major')
+  success_url = reverse_lazy('spapp:admin_dashboard')
   model = Major
-
+  context_object_name = 'major'
 
 
 # To display list of Account Removal Request
