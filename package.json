@@ -1,0 +1,8 @@
+{
+  "scripts":{
+    "dev":"npx tailwindcss -i ./spapp/static/spapp/tailwind.css -o ./spapp/static/spapp/styles.css --watch"
+},
+  "devDependencies": {
+    "tailwindcss": "^3.0.22"
+  }
+}

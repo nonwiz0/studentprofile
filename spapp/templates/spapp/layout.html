@@ -1,34 +1,18 @@
-{% load tailwind_tags %}
 <!DOCTYPE html>
 <html lang="en">
-
+  {% load static %}
   <head>
     <title>Django Tailwind</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-     <script src="https://cdn.tailwindcss.com"></script>
-    <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
-      <script>
-      tailwind.config = {
-        darkMode: false,
-        theme: {
-          extend: {
-            colors: {
-              primary: "#18345e", /* navyblue */
-              tertinary: "#22c1dc", /* lightblue */
-              secondary: "#f0ab20", /* yellow */
-              red: "#c01f48", /* for errors */
-              other: "#007bd6", /* blue */
-              lightGrey: "#e5e5e4", /* for background */
-            },
-          },
-        },
-      }
-    </script>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static '/spapp/styles.css' %}" />
+<!--      <script src="https://cdn.tailwindcss.com"></script> -->
+
   </head>
 
-  <body class="font-sans bg-lightGrey">
+  <body class="font-sans ">
     {% include "partials/header.html" with name="white_hats" %}
     {% block content_one_column %}
     {% endblock %}
