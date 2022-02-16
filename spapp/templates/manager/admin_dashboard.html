@@ -434,21 +434,45 @@
                 <!-- Tested by Gates -->
                 <h1>List of Majors</h1>
                 <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                    <a style="padding: 5px; background: green; color: white; text-align: center;" href="{% url 'spapp:create-major' %}">Create Major?</a>
                     <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
                         {% for major in majors %}
-                            {{major.name}}<br>
+                            {{major.name}}
+                            <a style="padding: 5px; background: blue; color: white; text-align: center;" 
+                                href="{% url 'spapp:update-major' major.id %}">Update</a> |
+                                <a style="padding: 5px; background: red; color: white; text-align: center;" 
+                                href="{% url 'spapp:delete-major' major.id %}">Delete</a><br>
                         {% endfor %}
                     </section>
                 </div>
             {% endif %}
+          
             {% if degrees %}
                 <!-- Tested by Gates -->
-                <h1>List of Degrees</h1>
+                <h1>List of Degrees</h1>          
                 <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                    <a style="padding: 5px; background: green; color: white; text-align: center;" href="{% url 'spapp:create-degree' %}">Create Degree?</a>
                     <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
                         {% for degree in degrees %}
-                            Degree: {{degree.name}}<br>
-                            Faculty: {{degree.faculty}}<br>
+                            {{degree.name}}
+                            <a style="padding: 5px; background: blue; color: white; text-align: center;" 
+                                href="{% url 'spapp:update-degree' degree.id %}">Update</a> |
+                                <a style="padding: 5px; background: red; color: white; text-align: center;" 
+                                href="{% url 'spapp:delete-degree' degree.id %}">Delete</a><br>
+                        {% endfor %}
+                    </section>
+                </div>
+            {% endif %}
+            {% if account_removal_request %}
+                <!-- Tested by Gates -->
+                <h1>List of Account Removal Request</h1>
+                <div class="flex flex-col justify-start w-full m-1 bg-white rounded-lg">
+                    <section class="relative w-full max-w-md p-2 mx-auto rounded-md">
+                        {% for item in account_removal_request %}
+                           {{item.student.user}} 
+                           <li>
+                            <a href="" class="bg-teal-500 p-2 rounded-lg"> Accept </a> 
+                           </li>
                         {% endfor %}
                     </section>
                 </div>
