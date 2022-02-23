@@ -1,4 +1,7 @@
 # studentprofile + backend
+# To do
+- Add another table for the role [Student | Manager | Registrar....]
+- Make Validator creation verified as True
 
 # Log
 ## Feb 09:
@@ -14,9 +17,17 @@ Wk2:
 - CRUD operation of Degree and Major
 - Frontend: work on profile page update
 
+# Feb 23:
+- Profile page on Front end 
+- Profile page on backend // Request account removal // Update account removal on a another page // add validator
+
+
+
 # Pages
 
 ## Student
+- can add request validator 10 per days
+
 ### Dashboard
 Contents:
 - Add activities boxes

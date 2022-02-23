@@ -100,6 +100,11 @@ class TrialPage(generic.TemplateView):
 class ProfilePage(LoginRequiredMixin,generic.TemplateView):
   login_url = 'spapp:login'
   template_name = "spapp/profile.html" 
+
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['recogs'] = AcademicRecognition.objects.all()
+    return context
   
 class SettingPage(LoginRequiredMixin,generic.UpdateView):
   login_url = 'spapp:login'
@@ -108,19 +113,6 @@ class SettingPage(LoginRequiredMixin,generic.UpdateView):
 
   def get_object(self):
     return get_object_or_404(Student, id=self.kwargs.get('pk'))
-
-# Student request to remove their account 
-def remove_account_request(req):
-  ## For the future: we can create a switch to allow student to request and remove the request
-  # removal_request = req.user.student.account_removal_request
-  removal_request = AccountRemovalRequest.objects.filter(student=req.user.student).first()
-  print(removal_request)
-  if removal_request is not None:
-    print("You already requested!")
-    return redirect("spapp:profile")
-  removal_request = AccountRemovalRequest.objects.create(student=req.user.student)
-  print("Requesting account Removal successfully")
-  return redirect('spapp:profile')
 
 # For Manager - Admin - SA
 class AdminDashboard(LoginRequiredMixin,generic.TemplateView):
@@ -212,10 +204,44 @@ class MajorUpdateView(LoginRequiredMixin, generic.UpdateView):
 
 # To delete degrees in delete_degree.html
 class MajorDeleteView(LoginRequiredMixin, generic.DeleteView):
+  login_url = '/'
   template_name = 'manager/major/delete_major.html'
   success_url = reverse_lazy('spapp:admin_dashboard')
   model = Major
   context_object_name = 'major'
+
+
+# to create academic recognition 
+def create_ar(req):
+  activity = Activities.objects.create(student=req.user.student, activity_name="Academic Recognition")
+  semester = req.POST.get('semester')
+  gpa = req.POST.get('gpa')
+  AcademicRecognition(activity=activity, semester=semester, gpa=gpa).save()
+  return redirect('spapp:profile')
+
+
+
+# Student request to remove their account 
+def remove_account_request(req):
+  ## For the future: we can create a switch to allow student to request and remove the request
+  # removal_request = req.user.student.account_removal_request
+  removal_request = AccountRemovalRequest.objects.filter(student=req.user.student).first()
+  print(removal_request)
+  if removal_request is not None:
+    print("You already requested!")
+    return redirect("spapp:profile")
+  removal_request = AccountRemovalRequest.objects.create(student=req.user.student)
+  print("Requesting account Removal successfully")
+  return redirect('spapp:profile')
+
+def update_account_removal_request(req, pk):
+  ## For the future: we can create a switch to allow student to request and remove the request
+  # removal_request = req.user.student.account_removal_request
+  removal_request = AccountRemovalRequest.objects.filter(pk=pk).first()
+  removal_request.status = not removal_request.status
+  removal_request.save()
+  print("Requesting account Removal successfully")
+  return redirect('spapp:dashboard')
 
 
 # To display list of Account Removal Request
@@ -224,4 +250,24 @@ class AccountRemovalListView(LoginRequiredMixin, generic.ListView):
   template_name = 'manager/account_removal_request/list_account_removal_request.html'
   context_object_name = 'account_removal_requests'
   model = AccountRemovalRequest
+
+# Create validator
+def return_post_data(post, arr):
+  tmp = []
+  for item in arr:
+    tmp.append(post[item])
+  return tmp
+
+
+def create_validator(req):
+  email, phone, name = return_post_data(req.POST, ["email", "phone", "name"])
+  exist_validator = Validator.objects.filter(email=email).first()
+  if exist_validator:
+    print("Validator is already existed!")
+    return redirect('spapp:profile')
+  new_validator = Validator.objects.create(name=name, email=email, phone_number=phone, created_by=req.user)
+  print(new_validator)
+  return redirect('spapp:profile')
+
+
 

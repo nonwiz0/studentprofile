@@ -28,7 +28,14 @@ urlpatterns = [
 
     # url for account removal
     path('list-account-removal-requests/', views.AccountRemovalListView.as_view(), name="list-account-removal-request"),
-    path("request-account-removal", views.remove_account_request, name="request-account-removal")
+    path("request-account-removal", views.remove_account_request, name="request-account-removal"),
+    path("request-account-removal/<str:pk>/update/", views.update_account_removal_request, name="update-arr-status"),
     ## Request to remove is located on student's profile page
+
+    # url for validator
+    path("create-validator", views.create_validator, name="create_validator"),
+
+    # url for managing academic recognition
+    path('create-academic-recognition/', views.create_ar, name="create-ar"),
  
 ]

@@ -1,2 +1,6 @@
 <h1> Account Removal Request List </h1>
-{{ account_removal_requests }}
+{% for item in account_removal_requests %}
+ <li> {{ item }} | <a href="{% url 'spapp:update-arr-status' item.pk %}"> Update status </a> </li>
+
+{% endfor %}
+

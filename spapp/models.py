@@ -37,7 +37,7 @@ class Student(models.Model):
     id_number = models.CharField(max_length=10)
     date_of_birth = models.DateField(null=True)
     nationality = models.CharField(max_length=10, null=True)
-    major = models.OneToOneField(Major, on_delete=models.CASCADE, null=True)
+    major = models.ForeignKey(Major, on_delete=models.CASCADE, null=True)
     bio_char = models.CharField(max_length=100, null=True)
     interests = models.CharField(max_length=100, null=True)
     phone_number = models.CharField(max_length=12, null=True)
@@ -54,51 +54,57 @@ class Validator(models.Model):
     phone_number = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
     verified = models.BooleanField(default=False)
+    created_by = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
 
     def __str__(self):
         return f"   {self.name}"
  
 
 class Activities(models.Model):
-    student = models.OneToOneField(Student, on_delete=models.CASCADE)
-    activity_name = models.CharField(max_length=30)
-    description = models.TextField()
-    start_date = models.DateField()
-    end_date = models.DateField()
-    validator = models.OneToOneField(Validator, null=True, on_delete=models.SET_NULL)
-    verification_status = models.BooleanField(default = False)
-    #approved_by_manager = models.OneToOneField(Manager, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    activity_name = models.CharField(max_length=30, null=True)
+    description = models.TextField(null=True)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
+    validator = models.ForeignKey(Validator, null=True, on_delete=models.SET_NULL)
+    verification_status = models.BooleanField(default=False)
+    #approved_by_manager = models.ForeignKey(Manager, on_delete=models.CASCADE)
     rewarded_points = models.IntegerField(default=0)
     
     def __str__(self):
-        return f"activity: {self.activity_name}"
+        return f"{self.activity_name}"
     
 class AcademicRecognition(models.Model):
-    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="academic_recognition")
-    semester = models.CharField(max_length=15)
+    SEMESTER = [('first_semester', 'First Semester'), ('second_semester', 'Second Semester')]
+    activity = models.ForeignKey(Activities, on_delete=models.CASCADE, related_name="academic_recognition")
+    semester = models.CharField(max_length=30, choices=SEMESTER)
     gpa = models.FloatField(max_length=3)
+
+    def __str__(self):
+        return f"{self.activity}"
+
    
 class CommunityService(models.Model):
-    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="community_service")
+    activity = models.ForeignKey(Activities, on_delete=models.CASCADE, related_name="community_service")
     location = models.CharField(max_length=50)
     
     
 
 class Project(models.Model):
-    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="project")
+    activity = models.ForeignKey(Activities, on_delete=models.CASCADE, related_name="project")
     resonsibility = models.TextField()
     location = models.CharField(max_length=50)
 
 
 class Research(models.Model):
-    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="research")
+    activity = models.ForeignKey(Activities, on_delete=models.CASCADE, related_name="research")
     co_author = models.CharField(max_length=100)
     link = models.CharField(max_length=50)
     published_date = models.DateField()
   
     
 class Internship(models.Model):
-    activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="internship")
+    activity = models.ForeignKey(Activities, on_delete=models.CASCADE, related_name="internship")
 
 
 class Job(models.Model):
