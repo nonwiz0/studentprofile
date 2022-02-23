@@ -3,6 +3,7 @@
 
 ## Student
 - icons from: https://remixicon.com/
+
 ### Dashboard
 Contents:
 - Add activities boxes
@@ -13,9 +14,10 @@ Contents:
 ### History Page
 - Show recent activities
 
-### Profile
+### Profile : Updated (Feb 23)
 Contents:
-- Show profile information (including a list of approved activities)
+- Show profile information 
+- Show other infos (exp, awards, achv)
 
 
 ## Admin / Manager
