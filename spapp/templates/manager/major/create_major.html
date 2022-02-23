@@ -1,0 +1,14 @@
+{% extends 'spapp/layout.html' %}
+{% block content %}
+    <div class="container" style="display: flex; justify-content:center;">
+        <form method="post" >
+            {% csrf_token %}
+            {{form.degree.label}}
+            {{form.degree}}<br><br>
+            {{form.name.label}}
+            {{form.name}}
+            <br><br>
+            <button style="background: green; color: white; padding: 5px 7px; margin-left: 170px;" type="submit">Create</button>
+        </form>
+    </div>    
+{% endblock %}

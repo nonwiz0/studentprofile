@@ -25,4 +25,10 @@ urlpatterns = [
     path('create-major/', views.MajorCreateView.as_view(), name="create-major"),
     path('update-major/<pk>/', views.MajorUpdateView.as_view(), name="update-major"),
     path('delete-major/<pk>/', views.MajorDeleteView.as_view(), name="delete-major"),
+
+    # url for account removal
+    path('list-account-removal-requests/', views.AccountRemovalListView.as_view(), name="list-account-removal-request"),
+    path("request-account-removal", views.remove_account_request, name="request-account-removal")
+    ## Request to remove is located on student's profile page
+ 
 ]

@@ -13,7 +13,7 @@ class Degree(models.Model):
     def __str__(self):
         """ the 'f' before the string, allows you to include varibles in your string, which should 
             be inclosed in curly braces {} """
-        return f"Degree: {self.name}, Faculty: {self.faculty}"
+        return f"{self.name}"
 
 class Major(models.Model):
     """ the ForeignKey creates a relatioship between the degree table (parent) and the Major table (child)
@@ -53,19 +53,24 @@ class Validator(models.Model):
     name = models.CharField(max_length=50)
     phone_number = models.CharField(max_length=50)
     email = models.CharField(max_length=50)
+    verified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"   {self.name}"
  
+
 class Activities(models.Model):
     student = models.OneToOneField(Student, on_delete=models.CASCADE)
     activity_name = models.CharField(max_length=30)
     description = models.TextField()
     start_date = models.DateField()
     end_date = models.DateField()
-    validator = models.OneToOneField(Validator, on_delete=models.CASCADE)
+    validator = models.OneToOneField(Validator, null=True, on_delete=models.SET_NULL)
     verification_status = models.BooleanField(default = False)
     #approved_by_manager = models.OneToOneField(Manager, on_delete=models.CASCADE)
     rewarded_points = models.IntegerField(default=0)
     
-    def ___str__(self):
+    def __str__(self):
         return f"activity: {self.activity_name}"
     
 class AcademicRecognition(models.Model):
@@ -74,8 +79,9 @@ class AcademicRecognition(models.Model):
     gpa = models.FloatField(max_length=3)
    
 class CommunityService(models.Model):
-    location = models.CharField(max_length=50)
     activity = models.OneToOneField(Activities, on_delete=models.CASCADE, related_name="community_service")
+    location = models.CharField(max_length=50)
+    
     
 
 class Project(models.Model):
@@ -103,13 +109,14 @@ class Job(models.Model):
     phone_number = models.CharField(max_length=20)
     website = models.CharField(max_length=50) 
 
-# Degree -> Program -> Major -> Emphasis
-#           Science -> Bioscience -> Biology
-#           Science -> Information Technology
-#    
-# Degree: Arts, Science, Business Admin,       
-# Major: IT, BioScience, Teaching, 
-# Emphasis: Biology, Clinical Lab Science
+
+class AccountRemovalRequest(models.Model):
+    student = models.OneToOneField(Student, on_delete=models.CASCADE, related_name="account_removal_request")
+    date = models.DateField(auto_now_add=True)
+    status = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.student.user.first_name}, Requested: {self.date}, Status: {self.status}"
 
 """
 

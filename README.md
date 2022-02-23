@@ -9,6 +9,11 @@ Wk2:
 - request to delete personal info / for student // broset
 - CRUD major and degree  for SA, Admin, manager - Sven Gate Big boss 
 
+## Feb 16:
+- Added Account Removal [List in Manager Dashboard / Request on student profile]
+- CRUD operation of Degree and Major
+- Frontend: work on profile page update
+
 # Pages
 
 ## Student
