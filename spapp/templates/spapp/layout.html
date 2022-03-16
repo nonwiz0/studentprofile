@@ -1,16 +1,18 @@
-{% load tailwind_tags %}
 <!DOCTYPE html>
+{% load tailwind_tags %}
 <html lang="en">
 
   <head>
-    <title>Django Tailwind</title>
+    <title>Dashboard | SPAPP</title>
     <meta charset="utf-8">
+
+      {% tailwind_css %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
-     <script src="https://cdn.tailwindcss.com"></script>
+      <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://unpkg.com/alpinejs@3.4.2/dist/cdn.min.js"></script>
       <script>
-      tailwind.config = {
+      {% comment %} tailwind.config = {
         darkMode: false,
         theme: {
           extend: {
@@ -24,7 +26,7 @@
             },
           },
         },
-      }
+      } {% endcomment %}
       {% if messages %}
       alert("Hello there")
       {% for message in messages %}
@@ -35,26 +37,19 @@
   </head>
 
   <body class="font-sans bg-lightGrey">
-      {% if messages %}
-      {% for message in messages %}
-        <h1>{{ message }} </h1>
-      {% endfor %}
-      {% endif %}
- 
+    <h1 className="bg-teal-500 py-2">Test</h1>
+    <hr />
+    {% block header %}
     {% include "partials/header.html" with name="white_hats" %}
-    {% block content_one_column %}
+    {% endblock %}
+    {% block content %}
+    <h1> Welcome to Dashboard</h1>
     {% endblock %}
 
-    <div class="flex flex-col-reverse items-start py-10 mb-10 md:flex-row">
-        {% block content %}
-        {% endblock %}
-        {% block sidebar %}
-        {% endblock %}
-    </div>
-    </div>
 
-
+  {% block footer %}
     {% include "partials/footer.html" %}
+    {% endblock %}
 
   </body>
 </html>

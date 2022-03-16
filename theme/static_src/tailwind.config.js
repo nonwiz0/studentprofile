@@ -14,9 +14,8 @@ module.exports = {
    * Set mode to "jit" if you want to generate your styles on-demand as you author your templates;
    * Set mode to "aot" if you want to generate the stylesheet in advance and purge later (aka legacy mode).
    */
-  mode: "jit",
 
-  purge: [
+  content: [
     /**
      * HTML. Paths to Django template files that will contain Tailwind CSS classes.
      */
@@ -52,39 +51,6 @@ module.exports = {
     // '../../**/*.py'
   ],
   darkMode: false, // or 'media' or 'class'
-  theme: {
-    extend: {},
-    colors: {
-      black: colors.black,
-      white: colors.white,
-      gray: colors.gray,
-      bgray: colors.blueGray,
-      cgray: colors.coolGray,
-      wgray: colors.warmGray,
-    /*   red: colors.red, */
-    /*   blue: colors.sky, */
-      orange: colors.orange,
-    /*   yellow: colors.yellow, */
-      amber: colors.amber,
-      lime: colors.lime,
-      rose: colors.rose,
-      fuchsia: colors.fuchsia,
-      lime: colors.lime,
-      green: colors.green,
-      emerald: colors.emerald,
-      teal: colors.teal,
-      // university brand colors
-      primary: "#18345e", /* navyblue */
-      tertinary: "#22c1dc", /* lightblue */
-      secondary: "#f0ab20", /* yellow */
-      red: "#c01f48", /* for errors */
-      other: "#007bd6", /* blue */
-      lightGrey: "#e5e5e4", /* for background */
-    },
-  },
-  variants: {
-    extend: {},
-  },
   plugins: [
     /**
      * '@tailwindcss/forms' is the forms plugin that provides a minimal styling

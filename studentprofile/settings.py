@@ -26,11 +26,13 @@ SECRET_KEY = 'django-insecure-=wlv92%hg*(!7xhgug492#8=w_ao0(-x(vpw^c&gc^030&bu3$
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+TAILWIND_APP_NAME = 'theme'
 
 # Application definition
 
+
 INSTALLED_APPS = [
+    'django_browser_reload',
     "crispy_forms",                     # new
     "crispy_tailwind",
     'tailwind',
@@ -45,6 +47,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -134,7 +137,7 @@ STATIC_URL = '/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
-
+STATICFILES_DIRS = [
+    BASE_DIR / "static",
+]
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-NPM_BIN_PATH = r"C:\Program Files\nodejs\npm.cmd"
-

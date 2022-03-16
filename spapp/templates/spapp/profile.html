@@ -1,6 +1,6 @@
 {% extends 'spapp/layout.html' %}
 
-{% block content_one_column %}
+{% block content %}
 <div class="p-2 rounded-lg border-solid m-1">
 <h1> Youre at profile page </h1>
 <h2> CRUD for Academic Recognition </h2>
@@ -12,19 +12,32 @@
             <option value="first_semester">First Semester</option>
             <option vlaue="second_semester">Second Semester</option>
         </select><br><br>
-        <input type="number" step="0.01" placeholder="gpa" name="gpa" />
+        <input type="number" step="0.01" placeholder="gpa" name="gpa" min="0" max="4" />
         <input type="submit" value="submit" class="cursor-pointer bg-primary text-white rounded-lg p-2 border-solid" />
     </form>
 </div>
 <div class="m-10">
-    
     {% for recog in recogs %}      
+        <form method="post" action="{% url 'spapp:create-ar'%}">
+            <input name="id" hidden value="{{recog.id}}">
+            <strong>Activity</strong>: {{recog.activity}}<br>
+            <label>Semester</label>
+            <select name="semester">
+                {{recog.semester}}
+                {% if recog.semester == 'first_semester' %}
+                    <option select value="first_semester">First Semester</option>
+                    <option value="{{recog.semester}}">Second Semester</option>
+                {% else %}
+                    <option value="first_semester">First Semester</option>
+                    <option select value="{{recog.semester}}">Second Semester</option>
+                {% endif %}          
+            </select>
+            <label>GPA:</label>
+            <input value="{{recog.gpa}}" type="number" step="0.01" placeholder="gpa" name="gpa" min="0" max="4" />
+        </form><br>
         <a href="#" class="p-2 bg-blue-500 text-white border-solid border-2 rounded-lg hover:bg-blue-600">Update</a>
         <a href="#" class="p-2 bg-orange-500 text-white border-solid border-2 rounded-lg hover:bg-orange-600">Delete</a>
         <br><br>
-        <strong>Activity</strong>: {{recog.activity}}<br>
-        <strong>Semester</strong>: {{recog.semester}}<br>
-        <strong>GPA</strong>: {{recog.gpa}}
     {% endfor %}
 </div>
 
@@ -47,3 +60,9 @@
 
 
 {% endblock %}
+
+
+<!-- <strong>Semester</strong>: {{recog.semester}}<br>
+<strong>Start-Date</strong>: {{recog.activity.start_date}}<br>
+<strong>End-Date</strong>: {{recog.activity.start_date}}<br>
+<strong>GPA</strong>: {{recog.gpa}}<br><br> -->
